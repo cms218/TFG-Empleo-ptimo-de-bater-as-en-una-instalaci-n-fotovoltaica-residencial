@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 import time
-from funciones import obtener_dataframes_prueba as dataframes
+from funciones import obtener_dataframes as dataframes
 from funciones import existencia
 from funciones import optimizar_final as optimizar
 from funciones.factura import calcular_factura
