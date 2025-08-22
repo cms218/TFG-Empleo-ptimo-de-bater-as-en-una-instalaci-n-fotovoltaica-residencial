@@ -106,7 +106,7 @@ def main(potencia_nominal, C_bateria):
     # Guardar archivo detallado de resultados por hora
     df_resultado.to_csv(f"batería_simple_resultados_P{potencia_nominal}_C{C_bateria}.csv", index=False)
 
-    print(f"✔️ Finalizado P={potencia_nominal}, C={C_bateria} | Coste sin placas: {total_anual_sin_placas:.2f} €, con placas: {total_anual_con_placas:.2f} €, con baterías: {total_anual_con_baterías:.2f} €")
+    print(f"Finalizado P={potencia_nominal}, C={C_bateria} | Coste sin placas: {total_anual_sin_placas:.2f} €, con placas: {total_anual_con_placas:.2f} €, con baterías: {total_anual_con_baterías:.2f} €")
 
 
 if __name__ == '__main__':
