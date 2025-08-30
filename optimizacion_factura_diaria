@@ -59,7 +59,14 @@ def main(potencial_nominal, C_bateria):
             print(f"No hay datos para el periodo {fecha_actual} a {fecha_dia_siguiente}.")
             break
 
-        res, df_opt = optimizar.optimizar(df_periodo, C_bateria, P_max, P_contratada, ef_carga, ef_descarga, epsilon, estado_ini=estado_inicial_bucle)
+        E_bat_previous = None
+
+        res, df_opt = optimizar.optimizar(df_periodo, C_bateria, P_max, P_contratada,
+                                  ef_carga, ef_descarga, epsilon,
+                                  estado_ini=estado_inicial_bucle,
+                                  E_bat_0=E_bat_previous)  
+        
+        E_bat_previous = res.x.copy()   # Se asigna el comportamiento obtenido como valor inicial para la siguiente optimización y así intentar reducir el tiempo de ejecución
         
         resultado_opt_dia = {
             'Fecha': fecha_inicio.strftime("%Y-%m-%d"),
